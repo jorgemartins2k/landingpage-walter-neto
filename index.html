@@ -5,22 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Walter Neto | Advogado Criminalista</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@600;700&display=swap"
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap"
         rel="stylesheet">
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         :root {
-            --bg-dark: #050505;
-            --accent-gold: #c5a059;
-            --accent-gold-light: #dfbd80;
+            --gold: #c9a84c;
+            --gold-light: #e8c96a;
+            --gold-dark: #8a6820;
+            --black: #0a0a0a;
+            --dark: #111111;
+            --white: #f5f0e8;
             --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(197, 160, 89, 0.2);
+            --glass-border: rgba(201, 168, 76, 0.2);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: #ffffff;
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -28,6 +37,30 @@
             align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        h1,
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        .font-cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Partículas douradas */
+        .hero-particles {
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle 2px at 15% 30%, rgba(201, 168, 76, 0.4) 1px, transparent 1px),
+                radial-gradient(circle 1px at 45% 70%, rgba(201, 168, 76, 0.3) 1px, transparent 1px),
+                radial-gradient(circle 2px at 85% 20%, rgba(201, 168, 76, 0.5) 1px, transparent 1px),
+                radial-gradient(circle 1px at 25% 85%, rgba(201, 168, 76, 0.4) 1px, transparent 1px),
+                radial-gradient(circle 2px at 75% 65%, rgba(201, 168, 76, 0.4) 1px, transparent 1px);
+            background-size: 150px 150px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .mesh-bg {
@@ -38,164 +71,170 @@
             height: 100%;
             z-index: -1;
             background: radial-gradient(at 0% 0%, #1a1c2c 0px, transparent 50%),
-                radial-gradient(at 100% 100%, #302b11 0px, transparent 50%);
-            opacity: 0.4;
-            filter: blur(80px);
+                radial-gradient(at 100% 100%, #1a150a 0px, transparent 50%);
+            opacity: 0.5;
+            filter: blur(100px);
         }
 
         .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border: 1px solid var(--glass-border);
-            border-radius: 2rem;
-            padding: 2.5rem 1.5rem;
+            border-radius: 2.5rem;
+            padding: 3rem 2rem;
             width: 90%;
-            max-width: 420px;
+            max-width: 440px;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.8s ease-out;
+            box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .glass-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .avatar {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            border: 2px solid var(--accent-gold);
-            margin: 0 auto 1.5rem;
+            border: 2px solid var(--gold);
+            margin: 0 auto 2rem;
             object-fit: cover;
-            padding: 4px;
-            background: rgba(197, 160, 89, 0.1);
+            padding: 5px;
+            background: rgba(201, 168, 76, 0.1);
             animation: pulse-gold 3s infinite;
         }
 
         @keyframes pulse-gold {
             0% {
-                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
+                box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
             }
 
             70% {
-                box-shadow: 0 0 0 15px rgba(197, 160, 89, 0);
+                box-shadow: 0 0 0 15px rgba(201, 168, 76, 0);
             }
 
             100% {
-                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+                box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
             }
         }
 
         .name {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.75rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.85rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(to right, #fff, var(--accent-gold-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--white);
+            text-transform: uppercase;
         }
 
         .tagline {
-            color: #a1a1aa;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            line-height: 1.5;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--gold);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.4;
+            font-style: italic;
+            letter-spacing: 1px;
         }
 
         .btn-premium {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 1rem;
             width: 100%;
-            padding: 1.1rem;
-            border-radius: 1rem;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-bottom: 1rem;
+            padding: 1.25rem;
+            border-radius: 1.25rem;
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 1.25rem;
         }
 
         .btn-gold {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, #a67c3b 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
             color: #000;
-            box-shadow: 0 10px 20px -5px rgba(197, 160, 89, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(201, 168, 76, 0.4);
+            font-weight: 700;
         }
 
         .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 30px -10px rgba(197, 160, 89, 0.5);
-            background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--accent-gold) 100%);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 40px -10px rgba(201, 168, 76, 0.6);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
         }
 
         .btn-outline {
             background: transparent;
             border: 1px solid var(--glass-border);
-            color: #fff;
+            color: var(--white);
         }
 
         .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-gold);
-            transform: translateY(-3px);
+            background: rgba(201, 168, 76, 0.05);
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            color: var(--gold);
         }
 
         .seals {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            opacity: 0.6;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            opacity: 0.5;
         }
 
         .seals svg {
-            width: 32px;
-            height: 32px;
-            color: var(--accent-gold);
+            width: 30px;
+            height: 30px;
+            color: var(--gold);
         }
 
         .footer-text {
             position: fixed;
-            bottom: 1.5rem;
-            font-size: 0.75rem;
-            color: #4b4b4b;
+            bottom: 2rem;
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 
 <body>
+    <div class="hero-particles"></div>
     <div class="mesh-bg"></div>
 
-    <div class="glass-card">
+    <div class="glass-card" id="card">
         <img src="assets/walter-avatar.webp" alt="Dr. Walter Neto" class="avatar">
 
         <h1 class="name">Dr. Walter Neto</h1>
-        <p class="tagline">
+        <p class="tagline font-cormorant">
             Especialista em Direito Criminal e Processo Penal<br>
             Professor Universitário | Atendimento Nacional
         </p>
 
         <div class="buttons">
             <a href="https://wa.me/5564992597117" class="btn-premium btn-gold">
-                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
                     <path
-                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
                 Falar com Dr. Walter agora
             </a>
 
             <a href="landing-page.html" class="btn-premium btn-outline">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                     <path d="M9 22V12h6v10" />
                 </svg>
@@ -207,8 +246,11 @@
             <!-- Balance/Scales icon -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round">
-                <path
-                    d="M16 16c3.314 0 6-2 6-4.5S19.314 7 16 7c-1.332 0-2.551.321-3.535.862a4 4 0 1 0-4.93 0C6.551 7.32 5.332 7 4 7 0.686 7-2 9-2 11.5s2.686 4.5 6 4.5m8 0c0 2.485-2.686 4.5-6 4.5s-6-2.015-6-4.5m12 0c0-2-1-3.5-2.5-4" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="18" r="3" />
+                <path d="M6 12v6M18 12v6" />
+                <path d="M12 2v20" />
+                <path d="M2 12h20" />
             </svg>
             <!-- Badge icon -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -226,6 +268,15 @@
     </div>
 
     <div class="footer-text">© 2025 Dr. Walter Neto | Advogado Criminalista</div>
+
+    <script>
+        // Reveal animation on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('card').classList.add('visible');
+            }, 200);
+        });
+    </script>
 </body>
 
 </html>

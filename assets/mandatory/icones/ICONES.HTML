@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ícones — Dr. Walter Neto | Direito Criminal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --dark: #0b0a1a;
+    --mid: #1a1835;
+    --accent: #c9a84c;
+    --accent-light: #e8c97a;
+    --text: #e8e6f0;
+    --muted: #8884a8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    padding: 3rem 2rem;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: var(--mid);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 16px;
+    padding: 2rem 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover {
+    border-color: rgba(201, 168, 76, 0.5);
+    transform: translateY(-4px);
+    background: #201e3d;
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .icon-wrap {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-wrap svg {
+    width: 52px;
+    height: 52px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px rgba(201,168,76,0.3));
+    transition: filter 0.3s;
+  }
+
+  .card:hover .icon-wrap svg {
+    filter: drop-shadow(0 0 12px rgba(201,168,76,0.6));
+  }
+
+  .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .divider {
+    width: 30px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  /* CÓDIGO SECTION */
+  .code-section {
+    max-width: 900px;
+    margin: 3rem auto 0;
+    background: #0f0e20;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .code-header {
+    background: rgba(201,168,76,0.1);
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .code-header span {
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .copy-btn {
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--accent);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .copy-btn:hover { background: rgba(201,168,76,0.1); }
+
+  pre {
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: #a8a8d8;
+    font-family: 'Courier New', monospace;
+  }
+
+  .tag { color: #7c9ef8; }
+  .attr { color: #c9a84c; }
+  .val { color: #78c99a; }
+  .comment { color: #4a4870; }
+</style>
+</head>
+<body>
+
+<h1>Ícones — Áreas de Atuação</h1>
+<p class="subtitle">Dr. Walter Neto · Advogado Criminalista</p>
+
+<div class="grid">
+
+  <!-- 1. Defesa Criminal -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 52 52">
+        <path d="M26 6 L8 14 L8 28 C8 38 17 45 26 48 C35 45 44 38 44 28 L44 14 Z"/>
+        <path d="M18 26 L23 31 L34 20"/>
+      </svg>
+    </div>
+    <div class="divider"></div>
+    <span class="label">Defesa Criminal</span>
+  </div>
+
+  <!-- 2. Habeas Corpus -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 52 52">
+        <rect x="14" y="8" width="24" height="32" rx="3"/>
+        <line x1="20" y1="17" x2="32" y2="17"/>
+        <line x1="20" y1="23" x2="32" y2="23"/>
+        <line x1="20" y1="29" x2="27" y2="29"/>
+        <circle cx="36" cy="40" r="8"/>
+        <path d="M32 40 L35 43 L40 37"/>
+      </svg>
+    </div>
+    <div class="divider"></div>
+    <span class="label">Habeas Corpus</span>
+  </div>
+
+  <!-- 3. Prisão em Flagrante -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 52 52">
+        <rect x="18" y="6" width="16" height="10" rx="2"/>
+        <path d="M22 16 L22 36 M30 16 L30 36"/>
+        <path d="M16 36 Q16 46 26 46 Q36 46 36 36 L36 26 L16 26 Z"/>
+        <line x1="10" y1="11" x2="18" y2="11"/>
+        <line x1="34" y1="11" x2="42" y2="11"/>
+      </svg>
+    </div>
+    <div class="divider"></div>
+    <span class="label">Prisão em Flagrante</span>
+  </div>
+
+  <!-- 4. Tráfico de Drogas -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 52 52">
+        <circle cx="26" cy="26" r="18"/>
+        <line x1="26" y1="8" x2="26" y2="44"/>
+        <line x1="8" y1="26" x2="44" y2="26"/>
+        <path d="M12 14 L40 38 M40 14 L12 38"/>
+        <circle cx="26" cy="26" r="6"/>
+      </svg>
+    </div>
+    <div class="divider"></div>
+    <span class="label">Tráfico de Drogas</span>
+  </div>
+
+  <!-- 5. Crimes Contra a Vida -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 52 52">
+        <path d="M26 10 C18 10 12 16 12 24 C12 34 26 44 26 44 C26 44 40 34 40 24 C40 16 34 10 26 10 Z"/>
+        <line x1="26" y1="19" x2="26" y2="29"/>
+        <line x1="21" y1="24" x2="31" y2="24"/>
+      </svg>
+    </div>
+    <div class="divider"></div>
+    <span class="label">Crimes Contra a Vida</span>
+  </div>
+
+  <!-- 6. Crimes Financeiros -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 52 52">
+        <rect x="8" y="16" width="36" height="26" rx="3"/>
+        <path d="M16 16 L16 12 C16 9 19 8 22 8 L30 8 C33 8 36 9 36 12 L36 16"/>
+        <circle cx="26" cy="29" r="6"/>
+        <line x1="26" y1="25" x2="26" y2="23"/>
+        <line x1="26" y1="35" x2="26" y2="33"/>
+        <line x1="22" y1="29" x2="20" y2="29"/>
+        <line x1="32" y1="29" x2="30" y2="29"/>
+      </svg>
+    </div>
+    <div class="divider"></div>
+    <span class="label">Crimes Financeiros</span>
+  </div>
+
+  <!-- 7. Júri Popular -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 52 52">
+        <rect x="8" y="10" width="36" height="28" rx="3"/>
+        <line x1="8" y1="20" x2="44" y2="20"/>
+        <line x1="26" y1="10" x2="26" y2="20"/>
+        <path d="M16 28 L22 34 L36 24"/>
+        <line x1="16" y1="42" x2="36" y2="42"/>
+        <line x1="26" y1="38" x2="26" y2="42"/>
+      </svg>
+    </div>
+    <div class="divider"></div>
+    <span class="label">Tribunal do Júri</span>
+  </div>
+
+  <!-- 8. Recursos e Apelações -->
+  <div class="card">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 52 52">
+        <path d="M10 26 C10 17 17 10 26 10 C32 10 37 13 40 18"/>
+        <polyline points="36 10 40 18 30 20"/>
+        <path d="M42 26 C42 35 35 42 26 42 C20 42 15 39 12 34"/>
+        <polyline points="16 42 12 34 22 32"/>
+        <line x1="26" y1="20" x2="26" y2="32"/>
+        <line x1="20" y1="26" x2="32" y2="26"/>
+      </svg>
+    </div>
+    <div class="divider"></div>
+    <span class="label">Recursos e Apelações</span>
+  </div>
+
+</div>
+
+<!-- Código SVG para exportar -->
+<div class="code-section">
+  <div class="code-header">
+    <span>SVG — Pronto para usar nos assets</span>
+    <button class="copy-btn" onclick="copyCode()">Copiar código</button>
+  </div>
+  <pre id="svg-code"><span class="comment">&lt;!-- ÍCONE: Defesa Criminal --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="val">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="val">"0 0 52 52"</span> <span class="attr">width</span>=<span class="val">"52"</span> <span class="attr">height</span>=<span class="val">"52"</span> <span class="attr">fill</span>=<span class="val">"none"</span> <span class="attr">stroke</span>=<span class="val">"#c9a84c"</span> <span class="attr">stroke-width</span>=<span class="val">"1.5"</span> <span class="attr">stroke-linecap</span>=<span class="val">"round"</span> <span class="attr">stroke-linejoin</span>=<span class="val">"round"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M26 6 L8 14 L8 28 C8 38 17 45 26 48 C35 45 44 38 44 28 L44 14 Z"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M18 26 L23 31 L34 20"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span>
+
+<span class="comment">&lt;!-- ÍCONE: Habeas Corpus --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="val">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="val">"0 0 52 52"</span> <span class="attr">width</span>=<span class="val">"52"</span> <span class="attr">height</span>=<span class="val">"52"</span> <span class="attr">fill</span>=<span class="val">"none"</span> <span class="attr">stroke</span>=<span class="val">"#c9a84c"</span> <span class="attr">stroke-width</span>=<span class="val">"1.5"</span> <span class="attr">stroke-linecap</span>=<span class="val">"round"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;rect</span> <span class="attr">x</span>=<span class="val">"14"</span> <span class="attr">y</span>=<span class="val">"8"</span> <span class="attr">width</span>=<span class="val">"24"</span> <span class="attr">height</span>=<span class="val">"32"</span> <span class="attr">rx</span>=<span class="val">"3"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="val">"20"</span> <span class="attr">y1</span>=<span class="val">"17"</span> <span class="attr">x2</span>=<span class="val">"32"</span> <span class="attr">y2</span>=<span class="val">"17"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="val">"20"</span> <span class="attr">y1</span>=<span class="val">"23"</span> <span class="attr">x2</span>=<span class="val">"32"</span> <span class="attr">y2</span>=<span class="val">"23"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;circle</span> <span class="attr">cx</span>=<span class="val">"36"</span> <span class="attr">cy</span>=<span class="val">"40"</span> <span class="attr">r</span>=<span class="val">"8"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M32 40 L35 43 L40 37"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span>
+
+<span class="comment">&lt;!-- ÍCONE: Prisão em Flagrante --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="val">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="val">"0 0 52 52"</span> <span class="attr">width</span>=<span class="val">"52"</span> <span class="attr">height</span>=<span class="val">"52"</span> <span class="attr">fill</span>=<span class="val">"none"</span> <span class="attr">stroke</span>=<span class="val">"#c9a84c"</span> <span class="attr">stroke-width</span>=<span class="val">"1.5"</span> <span class="attr">stroke-linecap</span>=<span class="val">"round"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;rect</span> <span class="attr">x</span>=<span class="val">"18"</span> <span class="attr">y</span>=<span class="val">"6"</span> <span class="attr">width</span>=<span class="val">"16"</span> <span class="attr">height</span>=<span class="val">"10"</span> <span class="attr">rx</span>=<span class="val">"2"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M22 16 L22 36 M30 16 L30 36"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M16 36 Q16 46 26 46 Q36 46 36 36 L36 26 L16 26 Z"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span>
+
+<span class="comment">&lt;!-- ÍCONE: Tráfico de Drogas --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="val">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="val">"0 0 52 52"</span> <span class="attr">width</span>=<span class="val">"52"</span> <span class="attr">height</span>=<span class="val">"52"</span> <span class="attr">fill</span>=<span class="val">"none"</span> <span class="attr">stroke</span>=<span class="val">"#c9a84c"</span> <span class="attr">stroke-width</span>=<span class="val">"1.5"</span> <span class="attr">stroke-linecap</span>=<span class="val">"round"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;circle</span> <span class="attr">cx</span>=<span class="val">"26"</span> <span class="attr">cy</span>=<span class="val">"26"</span> <span class="attr">r</span>=<span class="val">"18"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="val">"26"</span> <span class="attr">y1</span>=<span class="val">"8"</span> <span class="attr">x2</span>=<span class="val">"26"</span> <span class="attr">y2</span>=<span class="val">"44"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="val">"8"</span> <span class="attr">y1</span>=<span class="val">"26"</span> <span class="attr">x2</span>=<span class="val">"44"</span> <span class="attr">y2</span>=<span class="val">"26"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M12 14 L40 38 M40 14 L12 38"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;circle</span> <span class="attr">cx</span>=<span class="val">"26"</span> <span class="attr">cy</span>=<span class="val">"26"</span> <span class="attr">r</span>=<span class="val">"6"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span>
+
+<span class="comment">&lt;!-- ÍCONE: Crimes Contra a Vida --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="val">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="val">"0 0 52 52"</span> <span class="attr">width</span>=<span class="val">"52"</span> <span class="attr">height</span>=<span class="val">"52"</span> <span class="attr">fill</span>=<span class="val">"none"</span> <span class="attr">stroke</span>=<span class="val">"#c9a84c"</span> <span class="attr">stroke-width</span>=<span class="val">"1.5"</span> <span class="attr">stroke-linecap</span>=<span class="val">"round"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M26 10 C18 10 12 16 12 24 C12 34 26 44 26 44 C26 44 40 34 40 24 C40 16 34 10 26 10 Z"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="val">"26"</span> <span class="attr">y1</span>=<span class="val">"19"</span> <span class="attr">x2</span>=<span class="val">"26"</span> <span class="attr">y2</span>=<span class="val">"29"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="val">"21"</span> <span class="attr">y1</span>=<span class="val">"24"</span> <span class="attr">x2</span>=<span class="val">"31"</span> <span class="attr">y2</span>=<span class="val">"24"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span>
+
+<span class="comment">&lt;!-- ÍCONE: Crimes Financeiros --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="val">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="val">"0 0 52 52"</span> <span class="attr">width</span>=<span class="val">"52"</span> <span class="attr">height</span>=<span class="val">"52"</span> <span class="attr">fill</span>=<span class="val">"none"</span> <span class="attr">stroke</span>=<span class="val">"#c9a84c"</span> <span class="attr">stroke-width</span>=<span class="val">"1.5"</span> <span class="attr">stroke-linecap</span>=<span class="val">"round"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;rect</span> <span class="attr">x</span>=<span class="val">"8"</span> <span class="attr">y</span>=<span class="val">"16"</span> <span class="attr">width</span>=<span class="val">"36"</span> <span class="attr">height</span>=<span class="val">"26"</span> <span class="attr">rx</span>=<span class="val">"3"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M16 16 L16 12 C16 9 19 8 22 8 L30 8 C33 8 36 9 36 12 L36 16"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;circle</span> <span class="attr">cx</span>=<span class="val">"26"</span> <span class="attr">cy</span>=<span class="val">"29"</span> <span class="attr">r</span>=<span class="val">"6"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span>
+
+<span class="comment">&lt;!-- ÍCONE: Tribunal do Júri --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="val">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="val">"0 0 52 52"</span> <span class="attr">width</span>=<span class="val">"52"</span> <span class="attr">height</span>=<span class="val">"52"</span> <span class="attr">fill</span>=<span class="val">"none"</span> <span class="attr">stroke</span>=<span class="val">"#c9a84c"</span> <span class="attr">stroke-width</span>=<span class="val">"1.5"</span> <span class="attr">stroke-linecap</span>=<span class="val">"round"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;rect</span> <span class="attr">x</span>=<span class="val">"8"</span> <span class="attr">y</span>=<span class="val">"10"</span> <span class="attr">width</span>=<span class="val">"36"</span> <span class="attr">height</span>=<span class="val">"28"</span> <span class="attr">rx</span>=<span class="val">"3"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="val">"8"</span> <span class="attr">y1</span>=<span class="val">"20"</span> <span class="attr">x2</span>=<span class="val">"44"</span> <span class="attr">y2</span>=<span class="val">"20"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;line</span> <span class="attr">x1</span>=<span class="val">"26"</span> <span class="attr">y1</span>=<span class="val">"10"</span> <span class="attr">x2</span>=<span class="val">"26"</span> <span class="attr">y2</span>=<span class="val">"20"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M16 28 L22 34 L36 24"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span>
+
+<span class="comment">&lt;!-- ÍCONE: Recursos e Apelações --&gt;</span>
+<span class="tag">&lt;svg</span> <span class="attr">xmlns</span>=<span class="val">"http://www.w3.org/2000/svg"</span> <span class="attr">viewBox</span>=<span class="val">"0 0 52 52"</span> <span class="attr">width</span>=<span class="val">"52"</span> <span class="attr">height</span>=<span class="val">"52"</span> <span class="attr">fill</span>=<span class="val">"none"</span> <span class="attr">stroke</span>=<span class="val">"#c9a84c"</span> <span class="attr">stroke-width</span>=<span class="val">"1.5"</span> <span class="attr">stroke-linecap</span>=<span class="val">"round"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M10 26 C10 17 17 10 26 10 C32 10 37 13 40 18"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;polyline</span> <span class="attr">points</span>=<span class="val">"36 10 40 18 30 20"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;path</span> <span class="attr">d</span>=<span class="val">"M42 26 C42 35 35 42 26 42 C20 42 15 39 12 34"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;polyline</span> <span class="attr">points</span>=<span class="val">"16 42 12 34 22 32"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/svg&gt;</span></pre>
+</div>
+
+<script>
+function copyCode() {
+  const svgs = document.querySelectorAll('.icon-wrap svg');
+  const areas = ['Defesa Criminal','Habeas Corpus','Prisão em Flagrante','Tráfico de Drogas','Crimes Contra a Vida','Crimes Financeiros','Tribunal do Júri','Recursos e Apelações'];
+  let out = '';
+  svgs.forEach((svg, i) => {
+    const clone = svg.cloneNode(true);
+    clone.setAttribute('xmlns','http://www.w3.org/2000/svg');
+    clone.setAttribute('width','52');
+    clone.setAttribute('height','52');
+    clone.setAttribute('fill','none');
+    clone.setAttribute('stroke','#c9a84c');
+    clone.setAttribute('stroke-width','1.5');
+    clone.setAttribute('stroke-linecap','round');
+    clone.setAttribute('stroke-linejoin','round');
+    out += `<!-- ${areas[i]} -->\n${clone.outerHTML}\n\n`;
+  });
+  navigator.clipboard.writeText(out).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copiado!';
+    setTimeout(() => btn.textContent = 'Copiar código', 2000);
+  });
+}
+</script>
+
+</body>
+</html>

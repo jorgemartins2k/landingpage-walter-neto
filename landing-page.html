@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -7,471 +7,660 @@
     <title>Dr. Walter Neto | Advogado Criminalista Especialista</title>
     <meta name="description"
         content="Defesa criminal estratégica em todo o Brasil. Dr. Walter Neto, advogado e professor universitário, protegendo sua liberdade e reputação com excelência técnica.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@600;700;800&display=swap"
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap"
         rel="stylesheet">
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         :root {
-            --bg-dark: #050505;
-            --bg-card: rgba(255, 255, 255, 0.02);
-            --accent-gold: #c5a059;
-            --accent-gold-dark: #a67c3b;
-            --text-gray: #a1a1aa;
+            --gold: #c9a84c;
+            --gold-light: #e8c96a;
+            --gold-dark: #8a6820;
+            --black: #0a0a0a;
+            --dark: #111111;
+            --white: #f5f0e8;
+            --gray: #666666;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: #ffffff;
-            line-height: 1.6;
+            background-color: var(--black);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
 
         h1,
         h2,
-        h3 {
-            font-family: 'Outfit', sans-serif;
-            letter-spacing: -0.02em;
+        h3,
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
         }
 
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #fff 0%, var(--accent-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .font-cormorant {
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        .premium-border {
-            border: 1px solid rgba(197, 160, 89, 0.1);
+        /* Partículas douradas */
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle 2px at 15% 30%, rgba(201, 168, 76, 0.4) 1px, transparent 1px),
+                radial-gradient(circle 1px at 45% 70%, rgba(201, 168, 76, 0.3) 1px, transparent 1px),
+                radial-gradient(circle 2px at 85% 20%, rgba(201, 168, 76, 0.5) 1px, transparent 1px),
+                radial-gradient(circle 1px at 25% 85%, rgba(201, 168, 76, 0.4) 1px, transparent 1px),
+                radial-gradient(circle 2px at 75% 65%, rgba(201, 168, 76, 0.4) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes pulse-custom {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(201, 168, 76, 0);
+            }
+        }
+
+        .btn-pulse {
+            animation: pulse-custom 2s infinite;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover nos cards das áreas */
+        .area-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(201, 168, 76, 0.1);
         }
 
-        .premium-border:hover {
-            border-color: var(--accent-gold);
-            background: rgba(197, 160, 89, 0.03);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -20px rgba(197, 160, 89, 0.2);
+        .area-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(201, 168, 76, 0.5);
+            background: rgba(201, 168, 76, 0.03);
+            box-shadow: 0 20px 40px -20px rgba(201, 168, 76, 0.3);
         }
 
-        .hero-mesh {
-            background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
-            transition: all 0.3s ease;
-        }
-
-        .btn-gold:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
+        /* FAQ accordion */
         .faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s ease, padding 0.4s ease;
         }
 
-        .faq-item.active .faq-content {
-            max-height: 200px;
-            padding-bottom: 1.5rem;
+        .faq-item.open .faq-content {
+            max-height: 300px;
         }
 
-        .faq-item.active .faq-icon {
+        .faq-item.open {
+            border-left: 2px solid var(--gold);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-icon {
             transform: rotate(180deg);
         }
 
-        .shadow-glow {
-            box-shadow: 0 0 50px rgba(197, 160, 89, 0.1);
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="antialiased overflow-x-hidden selection:bg-[#c9a84c] selection:text-[#0a0a0a]">
 
-    <!-- Header -->
-    <header class="fixed w-full z-50 bg-black/60 backdrop-blur-xl border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
+    <!-- HEADER -->
+    <header id="header"
+        class="fixed w-full z-50 transition-all duration-300 bg-transparent border-b border-transparent py-6">
+        <div class="container mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex flex-row items-center gap-4">
                 <div
-                    class="w-10 h-10 border border-gold flex items-center justify-center rounded-lg bg-gradient-to-br from-gold/20 to-transparent">
-                    <span class="text-gold font-bold text-xl" style="color: var(--accent-gold)">W</span>
+                    class="w-10 h-10 border border-[#c9a84c] flex items-center justify-center rounded bg-gradient-to-br from-[#c9a84c]/20 to-transparent">
+                    <span class="text-[#c9a84c] font-cinzel font-bold text-xl">W</span>
                 </div>
-                <span class="text-xl font-extrabold tracking-tighter">DR. WALTER <span
-                        class="text-gray-500">NETO</span></span>
-            </div>
+                <div class="flex flex-col justify-center">
+                    <div class="font-cinzel text-lg leading-none font-bold tracking-[2px] text-[#f5f0e8] uppercase">
+                        Dr. Walter Neto</div>
+                    <div class="font-montserrat text-[8px] leading-tight tracking-[3px] text-[#c9a84c] uppercase mt-1">
+                        Advogado Criminalista</div>
+                </div>
+            </a>
 
+            <!-- Nav -->
             <nav
-                class="hidden lg:flex items-center gap-10 text-xs font-semibold uppercase tracking-widest text-gray-400">
-                <a href="#inicio" class="hover:text-white transition">Início</a>
-                <a href="#atuacao" class="hover:text-white transition">Atuação</a>
-                <a href="#autoridade" class="hover:text-white transition">O Advogado</a>
-                <a href="#depoimentos" class="hover:text-white transition">Resultados</a>
+                class="hidden md:flex items-center gap-10 font-light text-[10px] tracking-[3px] uppercase text-[#f5f0e8]">
+                <a href="#inicio" class="hover:text-[#c9a84c] transition">Início</a>
+                <a href="#atuacao" class="hover:text-[#c9a84c] transition">Atuação</a>
+                <a href="#autoridade" class="hover:text-[#c9a84c] transition">O Advogado</a>
+                <a href="#resultados" class="hover:text-[#c9a84c] transition">Resultados</a>
+                <a href="https://wa.me/5564992597117" target="_blank"
+                    class="px-6 py-2.5 border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition font-bold uppercase tracking-[2px]">Consulta
+                    Urgente</a>
             </nav>
 
-            <a href="https://wa.me/5564992597117"
-                class="btn-gold px-7 py-2.5 rounded-full text-black font-bold text-sm tracking-wide">
-                FALE AGORA
-            </a>
+            <button id="menu-btn" class="md:hidden text-[#c9a84c]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="relative pt-44 pb-32 overflow-hidden">
-        <div class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] hero-mesh blur-[120px] rounded-full opacity-50">
-        </div>
+    <main>
+        <!-- HERO -->
+        <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-[#0a0a0a]">
+            <div class="hero-particles"></div>
+            <div
+                class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-[#c9a84c]/10 to-transparent blur-[120px] rounded-full opacity-50">
+            </div>
 
-        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
-            <div class="lg:w-3/5 space-y-10 z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold tracking-[0.2em] text-gold uppercase"
-                    style="color: var(--accent-gold)">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"
-                            style="background-color: var(--accent-gold)"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-gold"
-                            style="background-color: var(--accent-gold)"></span>
-                    </span>
-                    Defesa Criminal de Alta Performance
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col-reverse lg:flex-row items-center gap-16">
+                    <div class="w-full lg:w-[60%] flex flex-col items-start fade-in">
+                        <span
+                            class="text-[#c9a84c] text-xs tracking-[5px] uppercase font-bold mb-8 flex items-center gap-4">
+                            <span class="w-12 h-[1px] bg-[#c9a84c]"></span> Defesa Criminal de Elite
+                        </span>
+                        <h1
+                            class="font-cinzel text-4xl lg:text-6xl xl:text-7xl text-white leading-[1.1] uppercase tracking-[2px] mb-10">
+                            Sua liberdade sob a guarda de quem <span class="gold-gradient-text italic">domina a
+                                lei</span>.
+                        </h1>
+                        <p
+                            class="font-cormorant text-xl lg:text-2xl font-light text-[#f5f0e8]/80 mb-14 max-w-2xl leading-relaxed">
+                            Especialista em Direito Criminal e Processo Penal. Advogado e Professor Universitário
+                            atuando com rigor técnico em todo o território nacional.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-6 mb-20 w-full sm:w-auto">
+                            <a href="https://wa.me/5564992597117" target="_blank"
+                                class="btn-pulse px-10 py-5 bg-[#c9a84c] text-[#0a0a0a] hover:bg-[#e8c96a] transition text-center uppercase text-xs tracking-[3px] font-black">
+                                Garantir minha defesa agora
+                            </a>
+                            <a href="#atuacao"
+                                class="px-10 py-5 border border-white/20 text-[#f5f0e8] hover:border-[#c9a84c] hover:text-[#c9a84c] transition text-center uppercase text-xs tracking-[3px] flex items-center justify-center gap-3">
+                                Conhecer Atuação <span class="text-lg">→</span>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex flex-wrap items-center gap-6 text-[10px] text-[#666666] tracking-[3px] uppercase w-full">
+                            <span>+10 Anos de Prática</span>
+                            <span class="text-[#c9a84c]">◆</span>
+                            <span>Professor Universitário</span>
+                            <span class="text-[#c9a84c]">◆</span>
+                            <span>Atendimento 24h</span>
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-[40%] fade-in">
+                        <div class="relative w-full max-w-md mx-auto">
+                            <div
+                                class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10">
+                            </div>
+                            <img src="assets/walter-hero.webp" alt="Dr. Walter Neto"
+                                class="w-full h-auto object-cover rounded-[3rem] shadow-[0_0_50px_rgba(201,168,76,0.15)] relative z-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUMBERS -->
+        <section id="numeros" class="bg-[#111111] py-20 border-y border-[#1e1a14]">
+            <div class="container mx-auto px-6">
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-[#c9a84c]/20 text-center">
+                    <div class="flex flex-col items-center justify-center py-6 fade-in">
+                        <span class="font-cinzel text-5xl gold-gradient-text mb-3 counter" data-target="10">+0</span>
+                        <span class="text-[10px] text-white/60 tracking-[4px] uppercase font-bold">Anos de
+                            Experiência</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-6 fade-in">
+                        <span class="font-cinzel text-5xl gold-gradient-text mb-3 counter" data-target="1200">+0</span>
+                        <span class="text-[10px] text-white/60 tracking-[4px] uppercase font-bold">Processos
+                            Atuados</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-6 fade-in">
+                        <span class="font-cinzel text-5xl gold-gradient-text mb-3">BR</span>
+                        <span class="text-[10px] text-white/60 tracking-[4px] uppercase font-bold">Atendimento
+                            Nacional</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center py-6 fade-in">
+                        <span class="font-cinzel text-5xl gold-gradient-text mb-3">24h</span>
+                        <span class="text-[10px] text-white/60 tracking-[4px] uppercase font-bold">Suporte de
+                            Urgência</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRACTICE AREAS -->
+        <section id="atuacao" class="bg-[#0a0a0a] py-32 relative">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-24 fade-in">
+                    <span
+                        class="text-[#c9a84c] text-xs tracking-[6px] uppercase font-bold mb-4 block">Especialidades</span>
+                    <h2 class="font-cinzel text-4xl lg:text-5xl text-white tracking-[4px] uppercase mb-8">Áreas de
+                        Atuação</h2>
+                    <div class="divider w-32 mx-auto"></div>
                 </div>
 
-                <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] leading-tight">
-                    Sua liberdade protegida por quem <span class="gold-gradient-text italic">conhece a fundo</span> a
-                    Justiça.
-                </h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 fade-in">
+                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
+                        <div
+                            class="w-20 h-20 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
+                            <svg class="w-10 h-10 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="1.2"
+                                    d="M3 6l3 1 alternate 9-1 3-1M3 6l3-1 9 1 3 1M3 6V18c0 1 1 2 3 2s3-1 3-2V6M15 6V18c0 1 1 2 3 2s3-1 3-2V6">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Tribunal do Júri</h3>
+                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Defesa técnica e estratégica
+                            em crimes contra a vida. Sustentação oral de alto impacto baseada em rigorosa análise
+                            processual.</p>
+                        <a href="https://wa.me/5564992597117" target="_blank"
+                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Garantir
+                            Defesa →</a>
+                    </div>
 
-                <p class="text-gray-400 text-lg lg:text-xl max-w-2xl">
-                    Dr. Walter Neto: Advogado Especialista e Professor Universitário. Atendimento técnico excepcional e
-                    estratégico em todo o território nacional.
+                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
+                        <div
+                            class="w-20 h-20 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
+                            <svg class="w-10 h-10 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="1.2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Tribunais Superiores
+                        </h3>
+                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Impetração de Habeas Corpus e
+                            recursos especiais/extraordinários perante o STJ e STF com foco em nulidades e direitos
+                            fundamentais.</p>
+                        <a href="https://wa.me/5564992597117" target="_blank"
+                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Analisar
+                            Recurso →</a>
+                    </div>
+
+                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
+                        <div
+                            class="w-20 h-20 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
+                            <svg class="w-10 h-10 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="1.2"
+                                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3m0 0a10.003 10.003 0 014.283 17.571L16.236 17.5m0 0a10.003 10.003 0 014.283-17.571M12 11c0-1.657-1.343-3-3-3s-3 1.343-3 3 1.343 3 3 3 3-1.343 3-3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Inquéritos Policiais
+                        </h3>
+                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Acompanhamento imediato em
+                            delegacias e órgãos de investigação para evitar indiciamentos e garantir o devido processo
+                            legal desde o início.</p>
+                        <a href="https://wa.me/5564992597117" target="_blank"
+                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Gestão
+                            de Crise →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTHORITY -->
+        <section id="autoridade" class="bg-[#0a0a0a] py-32 relative overflow-hidden border-t border-[#1e1a14]">
+            <div class="absolute inset-0 z-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
+                <svg viewBox="0 0 100 100" class="w-[800px] h-[800px]" stroke="#c9a84c" stroke-width="0.5" fill="none">
+                    <polygon points="50,5 95,50 50,95 5,50" />
+                </svg>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-20 lg:gap-32">
+                    <div class="w-full lg:w-[45%] fade-in">
+                        <img src="assets/walter-authority.webp" alt="Dr. Walter Neto"
+                            class="w-full rounded-2xl border border-[#c9a84c]/20 shadow-[20px_20px_60px_rgba(0,0,0,0.5)]">
+                    </div>
+
+                    <div class="w-full lg:w-[55%] flex flex-col items-start fade-in">
+                        <span class="text-[#c9a84c] text-xs tracking-[6px] uppercase font-bold mb-6 italic">O
+                            Especialista</span>
+                        <h2 class="font-cinzel text-4xl lg:text-6xl text-white uppercase tracking-[4px] mb-4 text-left">
+                            Walter Neto</h2>
+                        <span
+                            class="font-montserrat text-[12px] text-[#c9a84c] tracking-[5px] uppercase block mb-12">Advogado
+                            | Professor Universitário</span>
+
+                        <div class="divider w-24 mb-12"></div>
+
+                        <blockquote
+                            class="font-cormorant text-2xl lg:text-3xl text-white italic leading-relaxed mb-12 border-l-4 px-8 border-[#c9a84c] bg-gradient-to-r from-[#c9a84c]/5 to-transparent py-6">
+                            "A advocacia criminal de elite não se faz apenas com leis, mas com inteligência estratégica
+                            e domínio acadêmico do processo."
+                        </blockquote>
+
+                        <p class="font-montserrat font-light text-[#888888] text-sm leading-relaxed mb-12 max-w-xl">
+                            Com uma trajetória marcada pela excelência técnica, o Dr. Walter Neto alia o conhecimento
+                            profundo das salas de aula universitárias à prática combativa nos tribunais. Sua atuação é
+                            pautada pelo sigilo absoluto, ética inabalável e busca incansável pela justiça.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 mb-16">
+                            <li
+                                class="flex items-center gap-4 text-xs tracking-[1px] text-white/90 list-none font-bold">
+                                <span class="text-[#c9a84c]">◆</span> PROFESSOR DE PROCESSO PENAL</li>
+                            <li
+                                class="flex items-center gap-4 text-xs tracking-[1px] text-white/90 list-none font-bold">
+                                <span class="text-[#c9a84c]">◆</span> ESP. EM TRIBUNAIS SUPERIORES</li>
+                            <li
+                                class="flex items-center gap-4 text-xs tracking-[1px] text-white/90 list-none font-bold">
+                                <span class="text-[#c9a84c]">◆</span> ATUAÇÃO EM TODO O BRASIL</li>
+                            <li
+                                class="flex items-center gap-4 text-xs tracking-[1px] text-white/90 list-none font-bold">
+                                <span class="text-[#c9a84c]">◆</span> REFERÊNCIA EM DEFESA DO JÚRI</li>
+                        </div>
+
+                        <a href="https://wa.me/5564992597117" target="_blank"
+                            class="px-10 py-5 bg-transparent border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition uppercase text-xs tracking-[4px] font-black">
+                            Falar diretamente com o Doutor
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="resultados" class="bg-[#111111] py-32 border-y border-[#1e1a14]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-24 fade-in">
+                    <h2 class="font-cinzel text-3xl md:text-5xl gold-gradient-text tracking-[6px] uppercase mb-8">
+                        Resultados que Protegem</h2>
+                    <p class="font-cormorant text-xl text-[#888888] italic">A confiança de quem teve sua liberdade
+                        preservada.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 fade-in">
+                    <div class="bg-[#0a0a0a] border border-[#1e1a14] p-12 relative group rounded-3xl">
+                        <span
+                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#c9a84c]/10 select-none">"</span>
+                        <div class="text-[#c9a84c] text-sm tracking-[4px] mb-8">★★★★★</div>
+                        <p class="font-cormorant text-xl text-white/90 italic mb-12 leading-relaxed relative z-10">"Sua
+                            atuação no Tribunal do Júri foi cirúrgica. Salvou minha liberdade e minha honra perante a
+                            sociedade quando tudo parecia perdido."</p>
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-[#c9a84c]/20 to-transparent rounded-full border border-[#c9a84c]/20">
+                            </div>
+                            <div>
+                                <div class="text-[11px] text-[#c9a84c] tracking-[3px] uppercase font-bold">Carlos A.
+                                </div>
+                                <div class="text-[9px] text-[#666666] tracking-[2px] uppercase">Empresário</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#0a0a0a] border border-[#1e1a14] p-12 relative group rounded-3xl">
+                        <span
+                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#c9a84c]/10 select-none">"</span>
+                        <div class="text-[#c9a84c] text-sm tracking-[4px] mb-8">★★★★★</div>
+                        <p class="font-cormorant text-xl text-white/90 italic mb-12 leading-relaxed relative z-10">"O
+                            Dr. consegue resultados imediatos em instâncias superiores. Revogou minha preventiva em
+                            tempo recorde com um Habeas Corpus brilhante."</p>
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-[#c9a84c]/20 to-transparent rounded-full border border-[#c9a84c]/20">
+                            </div>
+                            <div>
+                                <div class="text-[11px] text-[#c9a84c] tracking-[3px] uppercase font-bold">Roberto L.
+                                </div>
+                                <div class="text-[9px] text-[#666666] tracking-[2px] uppercase">Contador</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#0a0a0a] border border-[#1e1a14] p-12 relative group rounded-3xl">
+                        <span
+                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#c9a84c]/10 select-none">"</span>
+                        <div class="text-[#c9a84c] text-sm tracking-[4px] mb-8">★★★★★</div>
+                        <p class="font-cormorant text-xl text-white/90 italic mb-12 leading-relaxed relative z-10">
+                            "Contratar o Dr. Walter foi a melhor decisão. Atendimento humanizado, técnico e sempre
+                            disponível para tirar todas as dúvidas."</p>
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-[#c9a84c]/20 to-transparent rounded-full border border-[#c9a84c]/20">
+                            </div>
+                            <div>
+                                <div class="text-[11px] text-[#c9a84c] tracking-[3px] uppercase font-bold">Mariana F.
+                                </div>
+                                <div class="text-[9px] text-[#666666] tracking-[2px] uppercase">Advogada</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="bg-[#0a0a0a] py-32">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-20 fade-in">
+                    <h2 class="font-cinzel text-3xl md:text-5xl text-white tracking-[6px] uppercase mb-8">Consultoria
+                        Rápida</h2>
+                    <div class="divider w-32 mx-auto"></div>
+                </div>
+
+                <div class="space-y-6 fade-in">
+                    <div
+                        class="faq-item bg-[#111111] border border-[#1e1a14] rounded-xl overflow-hidden transition-all duration-300">
+                        <button
+                            class="w-full text-left px-10 py-8 flex justify-between items-center focus:outline-none group">
+                            <span
+                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#c9a84c] transition-colors">Fui
+                                preso em flagrante. O que fazer?</span>
+                            <span class="faq-icon text-[#c9a84c] text-2xl transition-transform">↓</span>
+                        </button>
+                        <div class="faq-content bg-[#0a0a0a]/50">
+                            <p
+                                class="px-10 py-8 text-sm font-light text-[#888888] leading-relaxed border-t border-[#1e1a14]/50">
+                                Mantenha a calma e utilize seu direito constitucional de permanecer em silêncio. Entre
+                                em contato imediatamente com um advogado criminalista. O acompanhamento na audiência de
+                                custódia em até 24h é fundamental para garantir sua liberdade.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="faq-item bg-[#111111] border border-[#1e1a14] rounded-xl overflow-hidden transition-all duration-300">
+                        <button
+                            class="w-full text-left px-10 py-8 flex justify-between items-center focus:outline-none group">
+                            <span
+                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#c9a84c] transition-colors">Como
+                                o Doutor atua fora de sua comarca?</span>
+                            <span class="faq-icon text-[#c9a84c] text-2xl transition-transform">↓</span>
+                        </button>
+                        <div class="faq-content bg-[#0a0a0a]/50">
+                            <p
+                                class="px-10 py-8 text-sm font-light text-[#888888] leading-relaxed border-t border-[#1e1a14]/50">
+                                Atuamos em todo o território nacional através de processos digitais, videoconferências e
+                                deslocamentos estratégicos para despachos presenciais com magistrados em qualquer estado
+                                do Brasil, garantindo o mesmo padrão de excelência.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="faq-item bg-[#111111] border border-[#1e1a14] rounded-xl overflow-hidden transition-all duration-300">
+                        <button
+                            class="w-full text-left px-10 py-8 flex justify-between items-center focus:outline-none group">
+                            <span
+                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#c9a84c] transition-colors">Acompanhamento
+                                em Delegacias?</span>
+                            <span class="faq-icon text-[#c9a84c] text-2xl transition-transform">↓</span>
+                        </button>
+                        <div class="faq-content bg-[#0a0a0a]/50">
+                            <p
+                                class="px-10 py-8 text-sm font-light text-[#888888] leading-relaxed border-t border-[#1e1a14]/50">
+                                Sim, possuímos atendimento prioritário 24h para acompanhamento em delegacias, órgãos de
+                                investigação e depoimentos. A presença do advogado criminalista desde o primeiro minuto
+                                é o que muitas vezes decide o rumo do processo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-40 relative bg-[#0a0a0a] overflow-hidden border-t border-[#1e1a14]">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] to-[#121826] z-0"></div>
+            <div class="absolute inset-0 flex justify-center items-center opacity-[0.05] pointer-events-none z-0">
+                <svg viewBox="0 0 100 100" class="w-[900px] h-[900px]" stroke="#c9a84c" stroke-width="0.7" fill="none">
+                    <polygon points="50,5 95,50 50,95 5,50" />
+                </svg>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10 text-center fade-in">
+                <h2 class="font-cinzel text-4xl md:text-7xl text-white uppercase tracking-[8px] mb-12 leading-tight">Não
+                    coloque sua <span class="gold-gradient-text italic">liberdade</span> em risco.</h2>
+                <p class="font-montserrat font-light text-[#f5f0e8]/80 text-xl max-w-3xl mx-auto mb-20 leading-relaxed">
+                    Atendimento especializado, técnico e resolutivo para complexas demandas criminais em todo o Brasil.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-5">
-                    <a href="https://wa.me/5564992597117"
-                        class="btn-gold px-10 py-5 rounded-2xl text-black font-black text-center shadow-2xl hover:scale-105 transition">
-                        GARANTIR MINHA DEFESA AGORA
-                    </a>
-                    <a href="#atuacao"
-                        class="border border-white/20 px-10 py-5 rounded-2xl font-bold text-center hover:bg-white/5 transition backdrop-blur-sm">
-                        Conhecer Atuação
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-10">
+                    <a href="https://wa.me/5564992597117" target="_blank"
+                        class="btn-pulse px-14 py-6 bg-[#c9a84c] text-[#0a0a0a] hover:bg-[#e8c96a] transition uppercase text-xs tracking-[5px] font-black flex items-center gap-4">
+                        Falar com o Doutor agora
                     </a>
                 </div>
-
-                <div class="flex items-center gap-6 pt-4 opacity-50">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Logo_OAB.svg" alt="OAB"
-                        class="h-10 filter grayscale brightness-200">
-                    <div class="h-8 w-px bg-white/10"></div>
-                    <div class="text-xs font-medium uppercase tracking-widest">Atendimento 24h em <br>Casos de Urgência
-                    </div>
-                </div>
             </div>
+        </section>
+    </main>
 
-            <div class="lg:w-2/5 relative">
-                <div class="absolute inset-0 bg-gold/10 blur-[100px] rounded-full translate-x-10 translate-y-10"></div>
-                <img src="assets/walter-hero.webp" alt="Dr. Walter Neto"
-                    class="relative z-10 w-full max-w-lg mx-auto rounded-[3rem] shadow-glow transform transition duration-1000">
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Numbers -->
-    <section class="py-20 border-y border-white/5 bg-white/2">
-        <div class="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-0">
-            <div class="text-center lg:border-r border-white/5">
-                <div class="text-4xl lg:text-5xl font-black mb-2 gold-gradient-text">+10</div>
-                <div class="text-[10px] uppercase font-bold tracking-[0.3em] text-gray-500">Anos de Experiência</div>
-            </div>
-            <div class="text-center lg:border-r border-white/5">
-                <div class="text-4xl lg:text-5xl font-black mb-2 gold-gradient-text">+1.2k</div>
-                <div class="text-[10px] uppercase font-bold tracking-[0.3em] text-gray-500">Processos Atuados</div>
-            </div>
-            <div class="text-center lg:border-r border-white/5">
-                <div class="text-4xl lg:text-5xl font-black mb-2 gold-gradient-text">BR</div>
-                <div class="text-[10px] uppercase font-bold tracking-[0.3em] text-gray-500">Alcance Nacional</div>
-            </div>
-            <div class="text-center">
-                <div class="text-4xl lg:text-5xl font-black mb-2 gold-gradient-text">24h</div>
-                <div class="text-[10px] uppercase font-bold tracking-[0.3em] text-gray-500">Suporte Crítico</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Practice Areas -->
-    <section id="atuacao" class="py-32 container mx-auto px-6">
-        <div class="max-w-3xl mb-20">
-            <h2 class="text-4xl lg:text-5xl font-black mb-6 uppercase tracking-tight">Especialidades <span
-                    class="text-gray-600">Criminais</span></h2>
-            <div class="h-1.5 w-24 bg-gold mb-8" style="background-color: var(--accent-gold)"></div>
-            <p class="text-gray-400 text-lg">Defesa de alta complexidade técnica em todas as instâncias do Judiciário
-                Brasileiro.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="p-10 rounded-[2rem] bg-stone-900/40 backdrop-blur-sm premium-border group">
-                <div class="w-14 h-14 bg-gold/10 flex items-center justify-center rounded-2xl mb-8 group-hover:bg-gold transition-colors"
-                    style="color: var(--accent-gold)">
-                    <svg class="w-7 h-7 group-hover:text-black transition-colors" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-width="1.5"
-                            d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3m0 0a10.003 10.003 0 014.283 17.571L16.236 17.5m0 0a10.003 10.003 0 014.283-17.571M12 11c0-1.657-1.343-3-3-3s-3 1.343-3 3 1.343 3 3 3 3-1.343 3-3z" />
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Inquérito Policial</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">Atuação estratégica desde o primeiro momento para
-                    evitar indiciamentos indevidos e garantir direitos fundamentais.</p>
-                <a href="https://wa.me/5564992597117"
-                    class="text-xs font-black tracking-widest text-gold uppercase hover:opacity-70 transition"
-                    style="color: var(--accent-gold)">Agendar Consulta →</a>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="p-10 rounded-[2rem] bg-stone-900/40 backdrop-blur-sm premium-border group">
-                <div class="w-14 h-14 bg-gold/10 flex items-center justify-center rounded-2xl mb-8 group-hover:bg-gold transition-colors"
-                    style="color: var(--accent-gold)">
-                    <svg class="w-7 h-7 group-hover:text-black transition-colors" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-width="1.5"
-                            d="M3 6l3 1 alternate 9-1 3-1M3 6l3-1 9 1 3 1M3 6V18c0 1 1 2 3 2s3-1 3-2V6M15 6V18c0 1 1 2 3 2s3-1 3-2V6" />
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Tribunal do Júri</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">Expertise em crimes dolosos contra a vida.
-                    Sustentação oral técnica e persuasiva perante o conselho de sentença.</p>
-                <a href="https://wa.me/5564992597117"
-                    class="text-xs font-black tracking-widest text-gold uppercase hover:opacity-70 transition"
-                    style="color: var(--accent-gold)">Garantir Defesa →</a>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="p-10 rounded-[2rem] bg-stone-900/40 backdrop-blur-sm premium-border group">
-                <div class="w-14 h-14 bg-gold/10 flex items-center justify-center rounded-2xl mb-8 group-hover:bg-gold transition-colors"
-                    style="color: var(--accent-gold)">
-                    <svg class="w-7 h-7 group-hover:text-black transition-colors" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-width="1.5"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Tribunais Superiores</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-6">Impetração de Habeas Corpus e Recursos no STJ e
-                    STF para reversão de decisões ilegais em instâncias superiores.</p>
-                <a href="https://wa.me/5564992597117"
-                    class="text-xs font-black tracking-widest text-gold uppercase hover:opacity-70 transition"
-                    style="color: var(--accent-gold)">Garantir Defesa →</a>
-            </div>
-
-            <!-- Adicionar mais 3 cards similares para Tráfico, Crimes Financeiros, Prisão em Flagrante -->
-            <!-- ... -->
-        </div>
-    </section>
-
-    <!-- Authority Section -->
-    <section id="autoridade" class="py-32 bg-stone-950 relative overflow-hidden">
+    <!-- FOOTER -->
+    <footer class="bg-[#080808] border-t border-[#c9a84c]/10 pt-24 pb-12">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-20">
-                <div class="lg:w-1/2 relative">
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-gold/20 blur-[80px] rounded-full"></div>
-                    <img src="assets/walter-authority.webp" alt="O Advogado"
-                        class="relative z-10 w-full rounded-3xl border border-white/5 shadow-2xl">
-                </div>
-                <div class="lg:w-1/2 space-y-8">
-                    <span class="text-gold font-bold tracking-[0.4em] text-xs uppercase"
-                        style="color: var(--accent-gold)">Autoridade & Conhecimento</span>
-                    <h2 class="text-4xl lg:text-6xl font-black leading-tight">Aliando a <span
-                            class="italic text-gray-500">academia</span> à <span class="gold-gradient-text">prática
-                            criminal</span> de elite.</h2>
-                    <p class="text-gray-400 text-lg leading-relaxed">
-                        O Dr. Walter Neto não é apenas um advogado, mas um mestre do Direito. Como **Professor
-                        Universitário**, ele molda o entendimento jurídico e aplica essa mesma profundidade acadêmica em
-                        cada defesa criminal.
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-2 h-2 rounded-full bg-gold" style="background-color: var(--accent-gold)">
-                            </div>
-                            <span class="font-medium text-sm">Professor de Processo Penal</span>
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-16 pb-20 border-b border-[#1e1a14]">
+                <div class="flex flex-col items-center lg:items-start gap-6">
+                    <div class="flex items-center gap-5">
+                        <div
+                            class="w-12 h-12 border border-[#c9a84c] flex items-center justify-center rounded bg-[#c9a84c]/10">
+                            <span class="text-[#c9a84c] font-cinzel font-bold text-2xl">W</span>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-2 h-2 rounded-full bg-gold" style="background-color: var(--accent-gold)">
-                            </div>
-                            <span class="font-medium text-sm">Especialista em Tribunais Superiores</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-2 h-2 rounded-full bg-gold" style="background-color: var(--accent-gold)">
-                            </div>
-                            <span class="font-medium text-sm">Certificado em Defesa do Júri</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-2 h-2 rounded-full bg-gold" style="background-color: var(--accent-gold)">
-                            </div>
-                            <span class="font-medium text-sm">Atendimento 24h Personalizado</span>
+                        <div class="flex flex-col">
+                            <span class="font-cinzel text-2xl font-bold tracking-[3px] text-white uppercase">Dr. Walter
+                                Neto</span>
+                            <span class="font-montserrat text-[9px] tracking-[4px] text-[#c9a84c] uppercase">Advogado
+                                Criminalista</span>
                         </div>
                     </div>
-                    <div class="pt-6">
-                        <a href="https://wa.me/5564992597117"
-                            class="btn-gold inline-block px-12 py-5 rounded-2xl text-black font-black shadow-2xl">
-                            FALAR DIRETAMENTE COM O DOUTOR
-                        </a>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section id="depoimentos" class="py-32 container mx-auto px-6">
-        <div class="text-center mb-24">
-            <h2 class="text-3xl lg:text-5xl font-black uppercase tracking-widest mb-6 gold-gradient-text">Resultados que
-                Protegem</h2>
-            <p class="text-gray-500 text-lg">Depoimentos reais de quem teve sua liberdade e reputação preservadas.</p>
-        </div>
+                <nav class="flex gap-16 text-[10px] tracking-[4px] uppercase font-bold text-[#666666]">
+                    <a href="#inicio" class="hover:text-[#c9a84c] transition">Início</a>
+                    <a href="#atuacao" class="hover:text-[#c9a84c] transition">Atuação</a>
+                    <a href="#autoridade" class="hover:text-[#c9a84c] transition">O Advogado</a>
+                </nav>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white/2 p-12 rounded-[3rem] border border-white/5 relative">
-                <svg class="text-gold/20 w-16 h-16 absolute -top-4 -left-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V5C14.017 3.89543 14.9124 3 16.017 3H19.017C21.2261 3 23.017 4.79086 23.017 7V15C23.017 18.866 19.883 22 16.017 22H14.017V21ZM1 21L1 18C1 16.8954 1.89543 16 3 16H6C6.55228 16 7 15.5523 7 15V9C7 8.44772 6.55228 8 6 8H3C1.89543 8 1 7.10457 1 6V5C1 3.89543 1.89543 3 3 3H6C8.20914 3 10 4.79086 10 7V15C10 18.866 6.86599 22 3 22H1V21Z" />
-                </svg>
-                <p class="text-gray-400 italic mb-8 relative z-10 font-medium">"Minha vida estava em jogo. O Dr. Walter
-                    entrou no caso e conseguiu revogar minha preventiva em menos de uma semana. Ele conhece cada vírgula
-                    do processo."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gold/10 rounded-full"></div>
-                    <div>
-                        <div class="font-bold text-sm">Carlos A.</div>
-                        <div class="text-[10px] text-gray-500 uppercase tracking-widest">Empresário</div>
-                    </div>
+                <div class="text-[10px] tracking-[3px] uppercase font-medium text-[#444444] text-center lg:text-right">
+                    OAB/GO 123.456<br>
+                    © <span class="year"></span> Walter Neto — Todos os direitos reservados.
                 </div>
-            </div>
-            <!-- ... Repetir depoimentos ... -->
-            <div class="bg-white/2 p-12 rounded-[3rem] border border-white/5 relative">
-                <p class="text-gray-400 italic mb-8 font-medium">"Indispensável. Sua atuação no tribunal do júri foi
-                    cirúrgica. Salvou minha liberdade e minha honra perante a sociedade."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gold/10 rounded-full"></div>
-                    <div>
-                        <div class="font-bold text-sm">Mariana F.</div>
-                        <div class="text-[10px] text-gray-500 uppercase tracking-widest">Cliente</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white/2 p-12 rounded-[3rem] border border-white/5 relative">
-                <p class="text-gray-400 italic mb-8 font-medium">"Contratei o Dr. Walter para um Habeas Corpus no STJ e
-                    o resultado foi imediato. É um nível superior de advocacia criminal."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gold/10 rounded-full"></div>
-                    <div>
-                        <div class="font-bold text-sm">Roberto L.</div>
-                        <div class="text-[10px] text-gray-500 uppercase tracking-widest">Contador</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-32 bg-stone-900/30">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl lg:text-5xl font-black text-center mb-20 gold-gradient-text uppercase">Consultoria <span
-                    class="text-gray-600">Rápida</span></h2>
-
-            <div class="space-y-6">
-                <!-- FAQ 1 -->
-                <div class="faq-item group">
-                    <button class="w-full py-6 flex justify-between items-center text-left" onclick="toggleFaq(this)">
-                        <span class="text-xl font-bold group-hover:text-gold transition-colors">Fui preso em flagrante.
-                            O que acontece agora?</span>
-                        <svg class="faq-icon w-6 h-6 text-gold transition-transform duration-300" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-content">
-                        <p class="text-gray-400 mb-6">Você será levado para a audiência de custódia em até 24 horas. É
-                            este o momento crucial onde pedimos sua liberdade provisória ou revogação da prisão ilegal.
-                            Não fale nada sem o seu advogado.</p>
-                    </div>
-                </div>
-                <!-- FAQ 2 -->
-                <div class="faq-item group">
-                    <button class="w-full py-6 flex justify-between items-center text-left" onclick="toggleFaq(this)">
-                        <span class="text-xl font-bold group-hover:text-gold transition-colors">Como o Dr. Walter atua
-                            em outros estados?</span>
-                        <svg class="faq-icon w-6 h-6 text-gold transition-transform duration-300" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="faq-content">
-                        <p class="text-gray-400 mb-6">Graças ao processo digital e nossa rede estratégica de apoio,
-                            atuamos em todo o Brasil. Realizamos defesas técnicas e despachos com juízes em qualquer
-                            comarca nacional.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-40 relative">
-        <div class="container mx-auto px-6 text-center">
-            <div
-                class="max-w-4xl mx-auto rounded-[4rem] p-16 lg:p-32 bg-gradient-to-br from-gold/10 to-transparent border border-gold/10 relative overflow-hidden">
-                <div class="absolute inset-0 hero-mesh opacity-20 blur-[100px]"></div>
-                <div class="relative z-10 space-y-10">
-                    <h2 class="text-4xl lg:text-7xl font-black leading-tight">Não coloque sua <span
-                            class="gold-gradient-text">liberdade</span> em mãos amadoras.</h2>
-                    <p class="text-gray-400 text-xl">Atendimento 24h para urgências criminais em todo o Brasil.</p>
-                    <div class="pt-6">
-                        <a href="https://wa.me/5564992597117"
-                            class="btn-gold px-12 py-6 rounded-[2rem] text-black font-black text-2xl shadow-glow inline-block">
-                            FALAR COM O DOUTOR PELO WHATSAPP
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-20 border-t border-white/5">
-        <div class="container mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-12">
-            <div>
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-8 h-8 bg-gold rounded flex items-center justify-center font-bold text-black"
-                        style="background-color: var(--accent-gold)">W</div>
-                    <span class="font-black text-lg">DR. WALTER NETO</span>
-                </div>
-                <p class="text-xs text-gray-600">OAB/GO 123.456 | Advogado Criminalista & Professor</p>
-            </div>
-
-            <div class="flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">
-                <a href="#" class="hover:text-gold transition">Privacidade</a>
-                <a href="#" class="hover:text-gold transition">Termos</a>
-                <a href="#inicio" class="hover:text-gold transition">Voltar ao topo</a>
-            </div>
-
-            <div class="text-[10px] text-gray-700 font-medium">
-                © 2025 Todos os direitos reservados. Design by AI Premium.
             </div>
         </div>
     </footer>
 
     <script>
-        function toggleFaq(btn) {
-            const item = btn.parentElement;
-            const wasActive = item.classList.contains('active');
-
-            // Close all items
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-
-            // If it wasn't active, open it
-            if (!wasActive) {
-                item.classList.add('active');
+        // Header scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.remove('bg-transparent', 'border-transparent', 'py-6');
+                header.classList.add('bg-[#080808]/90', 'backdrop-blur-xl', 'border-white/5', 'py-3');
+            } else {
+                header.classList.add('bg-transparent', 'border-transparent', 'py-6');
+                header.classList.remove('bg-[#080808]/90', 'backdrop-blur-xl', 'border-white/5', 'py-3');
             }
-        }
+        });
+
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('button');
+            btn.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                faqItems.forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+
+        // Intersection Observer
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    if (entry.target.id === 'numeros') {
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            let count = 0;
+                            const update = () => {
+                                const step = target / 50;
+                                count += step;
+                                if (count < target) {
+                                    counter.innerText = '+' + Math.ceil(count);
+                                    setTimeout(update, 20);
+                                } else {
+                                    counter.innerText = '+' + target;
+                                }
+                            };
+                            update();
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, #numeros').forEach(el => observer.observe(el));
+        document.querySelector('.year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        menuBtn.addEventListener('click', () => {
+            // Mobile toggle logic (can be expanded)
+        });
     </script>
 </body>
 
