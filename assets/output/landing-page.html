@@ -18,11 +18,12 @@
 
     <style>
         :root {
-            --gold: #c9a84c;
+            --gold: #C5A059;
             --gold-light: #e8c96a;
             --gold-dark: #8a6820;
             --black: #0a0a0a;
-            --dark: #111111;
+            --dark: #121212;
+            --icon-bg: #1E1E1E;
             --white: #f5f0e8;
             --gray: #666666;
         }
@@ -49,11 +50,11 @@
         .hero-particles {
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(circle 2px at 15% 30%, rgba(201, 168, 76, 0.4) 1px, transparent 1px),
-                radial-gradient(circle 1px at 45% 70%, rgba(201, 168, 76, 0.3) 1px, transparent 1px),
-                radial-gradient(circle 2px at 85% 20%, rgba(201, 168, 76, 0.5) 1px, transparent 1px),
-                radial-gradient(circle 1px at 25% 85%, rgba(201, 168, 76, 0.4) 1px, transparent 1px),
-                radial-gradient(circle 2px at 75% 65%, rgba(201, 168, 76, 0.4) 1px, transparent 1px);
+            background-image: radial-gradient(circle 2px at 15% 30%, rgba(197, 160, 89, 0.4) 1px, transparent 1px),
+                radial-gradient(circle 1px at 45% 70%, rgba(197, 160, 89, 0.3) 1px, transparent 1px),
+                radial-gradient(circle 2px at 85% 20%, rgba(197, 160, 89, 0.5) 1px, transparent 1px),
+                radial-gradient(circle 1px at 25% 85%, rgba(197, 160, 89, 0.4) 1px, transparent 1px),
+                radial-gradient(circle 2px at 75% 65%, rgba(197, 160, 89, 0.4) 1px, transparent 1px);
             background-size: 100px 100px;
             opacity: 0.4;
             pointer-events: none;
@@ -64,11 +65,11 @@
 
             0%,
             100% {
-                box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
             }
 
             70% {
-                box-shadow: 0 0 0 12px rgba(201, 168, 76, 0);
+                box-shadow: 0 0 0 12px rgba(197, 160, 89, 0);
             }
         }
 
@@ -90,14 +91,15 @@
         /* Hover nos cards das áreas */
         .area-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            background-color: var(--dark);
         }
 
         .area-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(201, 168, 76, 0.5);
-            background: rgba(201, 168, 76, 0.03);
-            box-shadow: 0 20px 40px -20px rgba(201, 168, 76, 0.3);
+            border-color: rgba(197, 160, 89, 0.5);
+            background: rgba(197, 160, 89, 0.03);
+            box-shadow: 0 20px 40px -20px rgba(197, 160, 89, 0.3);
         }
 
         /* FAQ accordion */
@@ -159,7 +161,7 @@
     </style>
 </head>
 
-<body class="antialiased overflow-x-hidden selection:bg-[#c9a84c] selection:text-[#0a0a0a]">
+<body class="antialiased overflow-x-hidden selection:bg-[#C5A059] selection:text-[#0a0a0a]">
 
     <!-- HEADER -->
     <header id="header"
@@ -167,13 +169,13 @@
         <div class="container mx-auto px-6 h-16 flex items-center justify-between">
             <a href="#" class="flex flex-row items-center gap-4">
                 <div
-                    class="w-10 h-10 border border-[#c9a84c] flex items-center justify-center rounded bg-gradient-to-br from-[#c9a84c]/20 to-transparent">
-                    <span class="text-[#c9a84c] font-cinzel font-bold text-xl">W</span>
+                    class="w-10 h-10 border border-[#C5A059] flex items-center justify-center rounded bg-gradient-to-br from-[#C5A059]/20 to-transparent">
+                    <span class="text-[#C5A059] font-cinzel font-bold text-xl">W</span>
                 </div>
                 <div class="flex flex-col justify-center">
                     <div class="font-cinzel text-lg leading-none font-bold tracking-[2px] text-[#f5f0e8] uppercase">
                         Dr. Walter Neto</div>
-                    <div class="font-montserrat text-[8px] leading-tight tracking-[3px] text-[#c9a84c] uppercase mt-1">
+                    <div class="font-montserrat text-[8px] leading-tight tracking-[3px] text-[#C5A059] uppercase mt-1">
                         Advogado Criminalista</div>
                 </div>
             </a>
@@ -181,16 +183,16 @@
             <!-- Nav -->
             <nav
                 class="hidden md:flex items-center gap-10 font-light text-[10px] tracking-[3px] uppercase text-[#f5f0e8]">
-                <a href="#inicio" class="hover:text-[#c9a84c] transition">Início</a>
-                <a href="#atuacao" class="hover:text-[#c9a84c] transition">Atuação</a>
-                <a href="#autoridade" class="hover:text-[#c9a84c] transition">O Advogado</a>
-                <a href="#resultados" class="hover:text-[#c9a84c] transition">Resultados</a>
+                <a href="#inicio" class="hover:text-[#C5A059] transition">Início</a>
+                <a href="#atuacao" class="hover:text-[#C5A059] transition">Atuação</a>
+                <a href="#autoridade" class="hover:text-[#C5A059] transition">O Advogado</a>
+                <a href="#resultados" class="hover:text-[#C5A059] transition">Resultados</a>
                 <a href="https://wa.me/5564992597117" target="_blank"
-                    class="px-6 py-2.5 border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition font-bold uppercase tracking-[2px]">Consulta
+                    class="px-6 py-2.5 border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-[#0a0a0a] transition font-bold uppercase tracking-[2px]">Consulta
                     Urgente</a>
             </nav>
 
-            <button id="menu-btn" class="md:hidden text-[#c9a84c]">
+            <button id="menu-btn" class="md:hidden text-[#C5A059]">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -203,15 +205,15 @@
         <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-[#0a0a0a]">
             <div class="hero-particles"></div>
             <div
-                class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-[#c9a84c]/10 to-transparent blur-[120px] rounded-full opacity-50">
+                class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-[#C5A059]/10 to-transparent blur-[120px] rounded-full opacity-50">
             </div>
 
             <div class="container mx-auto px-6 relative z-10">
                 <div class="flex flex-col-reverse lg:flex-row items-center gap-16">
                     <div class="w-full lg:w-[60%] flex flex-col items-start fade-in">
                         <span
-                            class="text-[#c9a84c] text-xs tracking-[5px] uppercase font-bold mb-8 flex items-center gap-4">
-                            <span class="w-12 h-[1px] bg-[#c9a84c]"></span> Defesa Criminal de Elite
+                            class="text-[#C5A059] text-xs tracking-[5px] uppercase font-bold mb-8 flex items-center gap-4">
+                            <span class="w-12 h-[1px] bg-[#C5A059]"></span> Defesa Criminal de Elite
                         </span>
                         <h1
                             class="font-cinzel text-4xl lg:text-6xl xl:text-7xl text-white leading-[1.1] uppercase tracking-[2px] mb-10">
@@ -226,11 +228,11 @@
 
                         <div class="flex flex-col sm:flex-row gap-6 mb-20 w-full sm:w-auto">
                             <a href="https://wa.me/5564992597117" target="_blank"
-                                class="btn-pulse px-10 py-5 bg-[#c9a84c] text-[#0a0a0a] hover:bg-[#e8c96a] transition text-center uppercase text-xs tracking-[3px] font-black">
+                                class="btn-pulse px-10 py-5 bg-[#C5A059] text-[#0a0a0a] hover:bg-[#e8c96a] transition text-center uppercase text-xs tracking-[3px] font-black">
                                 Garantir minha defesa agora
                             </a>
                             <a href="#atuacao"
-                                class="px-10 py-5 border border-white/20 text-[#f5f0e8] hover:border-[#c9a84c] hover:text-[#c9a84c] transition text-center uppercase text-xs tracking-[3px] flex items-center justify-center gap-3">
+                                class="px-10 py-5 border border-white/20 text-[#f5f0e8] hover:border-[#C5A059] hover:text-[#C5A059] transition text-center uppercase text-xs tracking-[3px] flex items-center justify-center gap-3">
                                 Conhecer Atuação <span class="text-lg">→</span>
                             </a>
                         </div>
@@ -238,9 +240,9 @@
                         <div
                             class="flex flex-wrap items-center gap-6 text-[10px] text-[#666666] tracking-[3px] uppercase w-full">
                             <span>+10 Anos de Prática</span>
-                            <span class="text-[#c9a84c]">◆</span>
+                            <span class="text-[#C5A059]">◆</span>
                             <span>Professor Universitário</span>
-                            <span class="text-[#c9a84c]">◆</span>
+                            <span class="text-[#C5A059]">◆</span>
                             <span>Atendimento 24h</span>
                         </div>
                     </div>
@@ -251,7 +253,7 @@
                                 class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10">
                             </div>
                             <img src="assets/walter-hero.webp" alt="Dr. Walter Neto"
-                                class="w-full h-auto object-cover rounded-[3rem] shadow-[0_0_50px_rgba(201,168,76,0.15)] relative z-0">
+                                class="w-full h-auto object-cover rounded-[3rem] shadow-[0_0_50px_rgba(197, 160, 89, 0.15)] relative z-0">
                         </div>
                     </div>
                 </div>
@@ -262,7 +264,7 @@
         <section id="numeros" class="bg-[#111111] py-20 border-y border-[#1e1a14]">
             <div class="container mx-auto px-6">
                 <div
-                    class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-[#c9a84c]/20 text-center">
+                    class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-[#C5A059]/20 text-center">
                     <div class="flex flex-col items-center justify-center py-6 fade-in">
                         <span class="font-cinzel text-5xl gold-gradient-text mb-3 counter" data-target="10">+0</span>
                         <span class="text-[10px] text-white/60 tracking-[4px] uppercase font-bold">Anos de
@@ -292,7 +294,7 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-24 fade-in">
                     <span
-                        class="text-[#c9a84c] text-xs tracking-[6px] uppercase font-bold mb-4 block">Especialidades</span>
+                        class="text-[#C5A059] text-xs tracking-[6px] uppercase font-bold mb-4 block">Especialidades</span>
                     <h2 class="font-cinzel text-4xl lg:text-5xl text-white tracking-[4px] uppercase mb-8">Áreas de
                         Atuação</h2>
                     <div class="divider w-32 mx-auto"></div>
@@ -300,14 +302,17 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 fade-in">
                     <!-- Area Card 1: Direito Criminal -->
-                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
+                    <div class="area-card p-12 flex flex-col items-center text-center group rounded-2xl">
                         <div
-                            class="w-24 h-24 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
-                            <svg class="w-12 h-12 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3m0 0a10.003 10.003 0 014.283 17.571L16.236 17.5m0 0a10.003 10.003 0 014.283-17.571M12 11c0-1.657-1.343-3-3-3s-3 1.343-3 3 1.343 3 3 3 3-1.343 3-3z">
-                                </path>
+                            class="w-24 h-24 bg-[#1E1E1E] flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#C5A059] transition-all">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+                                class="group-hover:stroke-black transition-colors">
+                                <path d="M12 3V21M12 3L7 5M12 3L17 5" stroke="#C5A059" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3 11C3 11 3 15 7 15C11 15 11 11 11 11M3 11L7 7L11 11" stroke="#C5A059"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M13 11C13 11 13 15 17 15C21 15 21 11 21 11M13 11L17 7L21 11" stroke="#C5A059"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Direito Criminal</h3>
@@ -315,19 +320,26 @@
                             complexos. Defesa técnica pautada no rigor acadêmico e na experiência prática de tribunais.
                         </p>
                         <a href="https://wa.me/5564992597117" target="_blank"
-                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Consultar
+                            class="text-[10px] text-[#C5A059] uppercase tracking-[4px] font-bold border-b border-[#C5A059]/30 pb-2 hover:text-[#e8c96a] transition">Consultar
                             Especialista →</a>
                     </div>
 
                     <!-- Area Card 2: Processo Penal -->
-                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
+                    <div class="area-card p-12 flex flex-col items-center text-center group rounded-2xl">
                         <div
-                            class="w-24 h-24 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
-                            <svg class="w-12 h-12 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                                </path>
+                            class="w-24 h-24 bg-[#1E1E1E] flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#C5A059] transition-all">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+                                class="group-hover:stroke-black transition-colors">
+                                <path
+                                    d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+                                    stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M14 2V8H20" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M8 13H16" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M8 17H12" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
                         </div>
                         <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Processo Penal</h3>
@@ -335,19 +347,30 @@
                             processuais e garantias fundamentais. Atuação firme para assegurar o cumprimento estrito da
                             lei.</p>
                         <a href="https://wa.me/5564992597117" target="_blank"
-                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Garantir
+                            class="text-[10px] text-[#C5A059] uppercase tracking-[4px] font-bold border-b border-[#C5A059]/30 pb-2 hover:text-[#e8c96a] transition">Garantir
                             Direitos →</a>
                     </div>
 
                     <!-- Area Card 3: Tribunal do Júri -->
-                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
+                    <div class="area-card p-12 flex flex-col items-center text-center group rounded-2xl">
                         <div
-                            class="w-24 h-24 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
-                            <svg class="w-12 h-12 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M3 6l3 1 alternate 9-1 3-1M3 6l3-1 9 1 3 1M3 6V18c0 1 1 2 3 2s3-1 3-2V6M15 6V18c0 1 1 2 3 2s3-1 3-2V6">
-                                </path>
+                            class="w-24 h-24 bg-[#1E1E1E] flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#C5A059] transition-all">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+                                class="group-hover:stroke-black transition-colors">
+                                <path d="M7 10L10 7L14 11L11 14L7 10Z" stroke="#C5A059" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M11 14L17 20" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M14 11L17 8C17.5523 7.44772 18.4477 7.44772 19 8C19.5523 8.55228 19.5523 9.44772 19 10L16 13"
+                                    stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M8 13L5 16C4.44772 16.5523 4.44772 17.4477 5 18C5.55228 18.5523 6.44772 18.5523 7 18L10 15"
+                                    stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M2 21H22" stroke="#C5A059" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
                         </div>
                         <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Tribunal do Júri</h3>
@@ -355,7 +378,7 @@
                             Conselho de Sentença. Experiência e oratória diferenciada em crimes dolosos contra a vida.
                         </p>
                         <a href="https://wa.me/5564992597117" target="_blank"
-                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Defesa
+                            class="text-[10px] text-[#C5A059] uppercase tracking-[4px] font-bold border-b border-[#C5A059]/30 pb-2 hover:text-[#e8c96a] transition">Defesa
                             no Júri →</a>
                     </div>
                 </div>
@@ -365,7 +388,7 @@
         <!-- AUTHORITY -->
         <section id="autoridade" class="bg-[#0a0a0a] py-32 relative overflow-hidden border-t border-[#1e1a14]">
             <div class="absolute inset-0 z-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
-                <svg viewBox="0 0 100 100" class="w-[800px] h-[800px]" stroke="#c9a84c" stroke-width="0.5" fill="none">
+                <svg viewBox="0 0 100 100" class="w-[800px] h-[800px]" stroke="#C5A059" stroke-width="0.5" fill="none">
                     <polygon points="50,5 95,50 50,95 5,50" />
                 </svg>
             </div>
@@ -374,22 +397,22 @@
                 <div class="flex flex-col lg:flex-row items-center gap-20 lg:gap-32">
                     <div class="w-full lg:w-[45%] fade-in">
                         <img src="assets/walter-authority.webp" alt="Dr. Walter Neto"
-                            class="w-full rounded-2xl border border-[#c9a84c]/20 shadow-[20px_20px_60px_rgba(0,0,0,0.5)]">
+                            class="w-full rounded-2xl border border-[#C5A059]/20 shadow-[20px_20px_60px_rgba(0,0,0,0.5)]">
                     </div>
 
                     <div class="w-full lg:w-[55%] flex flex-col items-start fade-in">
-                        <span class="text-[#c9a84c] text-xs tracking-[6px] uppercase font-bold mb-6 italic">O
+                        <span class="text-[#C5A059] text-xs tracking-[6px] uppercase font-bold mb-6 italic">O
                             Especialista</span>
                         <h2 class="font-cinzel text-4xl lg:text-6xl text-white uppercase tracking-[4px] mb-4 text-left">
                             Walter Neto</h2>
                         <span
-                            class="font-montserrat text-[12px] text-[#c9a84c] tracking-[5px] uppercase block mb-12">Advogado
+                            class="font-montserrat text-[12px] text-[#C5A059] tracking-[5px] uppercase block mb-12">Advogado
                             | Professor Universitário</span>
 
                         <div class="divider w-24 mb-12"></div>
 
                         <blockquote
-                            class="font-cormorant text-2xl lg:text-3xl text-white italic leading-relaxed mb-12 border-l-4 px-8 border-[#c9a84c] bg-gradient-to-r from-[#c9a84c]/5 to-transparent py-6">
+                            class="font-cormorant text-2xl lg:text-3xl text-white italic leading-relaxed mb-12 border-l-4 px-8 border-[#C5A059] bg-gradient-to-r from-[#C5A059]/5 to-transparent py-6">
                             "A advocacia criminal de elite não se faz apenas com leis, mas com inteligência estratégica
                             e domínio acadêmico do processo."
                         </blockquote>
@@ -403,20 +426,20 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 mb-16">
                             <li
                                 class="flex items-center gap-4 text-xs tracking-[1px] text-white/90 list-none font-bold">
-                                <span class="text-[#c9a84c]">◆</span> PROFESSOR DE PROCESSO PENAL</li>
+                                <span class="text-[#C5A059]">◆</span> PROFESSOR DE PROCESSO PENAL</li>
                             <li
                                 class="flex items-center gap-4 text-xs tracking-[1px] text-white/90 list-none font-bold">
-                                <span class="text-[#c9a84c]">◆</span> ESP. EM TRIBUNAIS SUPERIORES</li>
+                                <span class="text-[#C5A059]">◆</span> ESP. EM TRIBUNAIS SUPERIORES</li>
                             <li
                                 class="flex items-center gap-4 text-xs tracking-[1px] text-white/90 list-none font-bold">
-                                <span class="text-[#c9a84c]">◆</span> ATUAÇÃO EM TODO O BRASIL</li>
+                                <span class="text-[#C5A059]">◆</span> ATUAÇÃO EM TODO O BRASIL</li>
                             <li
                                 class="flex items-center gap-4 text-xs tracking-[1px] text-white/90 list-none font-bold">
-                                <span class="text-[#c9a84c]">◆</span> REFERÊNCIA EM DEFESA DO JÚRI</li>
+                                <span class="text-[#C5A059]">◆</span> REFERÊNCIA EM DEFESA DO JÚRI</li>
                         </div>
 
                         <a href="https://wa.me/5564992597117" target="_blank"
-                            class="px-10 py-5 bg-transparent border border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition uppercase text-xs tracking-[4px] font-black">
+                            class="px-10 py-5 bg-transparent border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-[#0a0a0a] transition uppercase text-xs tracking-[4px] font-black">
                             Falar diretamente com o Doutor
                         </a>
                     </div>
@@ -437,17 +460,17 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 fade-in">
                     <div class="bg-[#0a0a0a] border border-[#1e1a14] p-12 relative group rounded-3xl">
                         <span
-                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#c9a84c]/10 select-none">"</span>
-                        <div class="text-[#c9a84c] text-sm tracking-[4px] mb-8">★★★★★</div>
+                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#C5A059]/10 select-none">"</span>
+                        <div class="text-[#C5A059] text-sm tracking-[4px] mb-8">★★★★★</div>
                         <p class="font-cormorant text-xl text-white/90 italic mb-12 leading-relaxed relative z-10">"Sua
                             atuação no Tribunal do Júri foi cirúrgica. Salvou minha liberdade e minha honra perante a
                             sociedade quando tudo parecia perdido."</p>
                         <div class="flex items-center gap-5">
                             <div
-                                class="w-12 h-12 bg-gradient-to-br from-[#c9a84c]/20 to-transparent rounded-full border border-[#c9a84c]/20">
+                                class="w-12 h-12 bg-gradient-to-br from-[#C5A059]/20 to-transparent rounded-full border border-[#C5A059]/20">
                             </div>
                             <div>
-                                <div class="text-[11px] text-[#c9a84c] tracking-[3px] uppercase font-bold">Carlos A.
+                                <div class="text-[11px] text-[#C5A059] tracking-[3px] uppercase font-bold">Carlos A.
                                 </div>
                                 <div class="text-[9px] text-[#666666] tracking-[2px] uppercase">Empresário</div>
                             </div>
@@ -456,17 +479,17 @@
 
                     <div class="bg-[#0a0a0a] border border-[#1e1a14] p-12 relative group rounded-3xl">
                         <span
-                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#c9a84c]/10 select-none">"</span>
-                        <div class="text-[#c9a84c] text-sm tracking-[4px] mb-8">★★★★★</div>
+                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#C5A059]/10 select-none">"</span>
+                        <div class="text-[#C5A059] text-sm tracking-[4px] mb-8">★★★★★</div>
                         <p class="font-cormorant text-xl text-white/90 italic mb-12 leading-relaxed relative z-10">"O
                             Dr. consegue resultados imediatos em instâncias superiores. Revogou minha preventiva em
                             tempo recorde com um Habeas Corpus brilhante."</p>
                         <div class="flex items-center gap-5">
                             <div
-                                class="w-12 h-12 bg-gradient-to-br from-[#c9a84c]/20 to-transparent rounded-full border border-[#c9a84c]/20">
+                                class="w-12 h-12 bg-gradient-to-br from-[#C5A059]/20 to-transparent rounded-full border border-[#C5A059]/20">
                             </div>
                             <div>
-                                <div class="text-[11px] text-[#c9a84c] tracking-[3px] uppercase font-bold">Roberto L.
+                                <div class="text-[11px] text-[#C5A059] tracking-[3px] uppercase font-bold">Roberto L.
                                 </div>
                                 <div class="text-[9px] text-[#666666] tracking-[2px] uppercase">Contador</div>
                             </div>
@@ -475,17 +498,17 @@
 
                     <div class="bg-[#0a0a0a] border border-[#1e1a14] p-12 relative group rounded-3xl">
                         <span
-                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#c9a84c]/10 select-none">"</span>
-                        <div class="text-[#c9a84c] text-sm tracking-[4px] mb-8">★★★★★</div>
+                            class="absolute top-6 right-10 font-cormorant text-8xl text-[#C5A059]/10 select-none">"</span>
+                        <div class="text-[#C5A059] text-sm tracking-[4px] mb-8">★★★★★</div>
                         <p class="font-cormorant text-xl text-white/90 italic mb-12 leading-relaxed relative z-10">
                             "Contratar o Dr. Walter foi a melhor decisão. Atendimento humanizado, técnico e sempre
                             disponível para tirar todas as dúvidas."</p>
                         <div class="flex items-center gap-5">
                             <div
-                                class="w-12 h-12 bg-gradient-to-br from-[#c9a84c]/20 to-transparent rounded-full border border-[#c9a84c]/20">
+                                class="w-12 h-12 bg-gradient-to-br from-[#C5A059]/20 to-transparent rounded-full border border-[#C5A059]/20">
                             </div>
                             <div>
-                                <div class="text-[11px] text-[#c9a84c] tracking-[3px] uppercase font-bold">Mariana F.
+                                <div class="text-[11px] text-[#C5A059] tracking-[3px] uppercase font-bold">Mariana F.
                                 </div>
                                 <div class="text-[9px] text-[#666666] tracking-[2px] uppercase">Advogada</div>
                             </div>
@@ -510,9 +533,9 @@
                         <button
                             class="w-full text-left px-10 py-8 flex justify-between items-center focus:outline-none group">
                             <span
-                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#c9a84c] transition-colors">Fui
+                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#C5A059] transition-colors">Fui
                                 preso em flagrante. O que fazer?</span>
-                            <span class="faq-icon text-[#c9a84c] text-2xl transition-transform">↓</span>
+                            <span class="faq-icon text-[#C5A059] text-2xl transition-transform">↓</span>
                         </button>
                         <div class="faq-content bg-[#0a0a0a]/50">
                             <p
@@ -529,9 +552,9 @@
                         <button
                             class="w-full text-left px-10 py-8 flex justify-between items-center focus:outline-none group">
                             <span
-                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#c9a84c] transition-colors">Como
+                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#C5A059] transition-colors">Como
                                 o Doutor atua fora de sua comarca?</span>
-                            <span class="faq-icon text-[#c9a84c] text-2xl transition-transform">↓</span>
+                            <span class="faq-icon text-[#C5A059] text-2xl transition-transform">↓</span>
                         </button>
                         <div class="faq-content bg-[#0a0a0a]/50">
                             <p
@@ -548,9 +571,9 @@
                         <button
                             class="w-full text-left px-10 py-8 flex justify-between items-center focus:outline-none group">
                             <span
-                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#c9a84c] transition-colors">Acompanhamento
+                                class="font-montserrat font-bold text-[#f5f0e8] text-sm uppercase tracking-[2px] group-hover:text-[#C5A059] transition-colors">Acompanhamento
                                 em Delegacias?</span>
-                            <span class="faq-icon text-[#c9a84c] text-2xl transition-transform">↓</span>
+                            <span class="faq-icon text-[#C5A059] text-2xl transition-transform">↓</span>
                         </button>
                         <div class="faq-content bg-[#0a0a0a]/50">
                             <p
@@ -569,7 +592,7 @@
         <section class="py-40 relative bg-[#0a0a0a] overflow-hidden border-t border-[#1e1a14]">
             <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] to-[#121826] z-0"></div>
             <div class="absolute inset-0 flex justify-center items-center opacity-[0.05] pointer-events-none z-0">
-                <svg viewBox="0 0 100 100" class="w-[900px] h-[900px]" stroke="#c9a84c" stroke-width="0.7" fill="none">
+                <svg viewBox="0 0 100 100" class="w-[900px] h-[900px]" stroke="#C5A059" stroke-width="0.7" fill="none">
                     <polygon points="50,5 95,50 50,95 5,50" />
                 </svg>
             </div>
@@ -583,7 +606,7 @@
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-10">
                     <a href="https://wa.me/5564992597117" target="_blank"
-                        class="btn-pulse px-14 py-6 bg-[#c9a84c] text-[#0a0a0a] hover:bg-[#e8c96a] transition uppercase text-xs tracking-[5px] font-black flex items-center gap-4">
+                        class="btn-pulse px-14 py-6 bg-[#C5A059] text-[#0a0a0a] hover:bg-[#e8c96a] transition uppercase text-xs tracking-[5px] font-black flex items-center gap-4">
                         Falar com o Doutor agora
                     </a>
                 </div>
@@ -592,28 +615,28 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#080808] border-t border-[#c9a84c]/10 pt-24 pb-12">
+    <footer class="bg-[#080808] border-t border-[#C5A059]/10 pt-24 pb-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row justify-between items-center gap-16 pb-20 border-b border-[#1e1a14]">
                 <div class="flex flex-col items-center lg:items-start gap-6">
                     <div class="flex items-center gap-5">
                         <div
-                            class="w-12 h-12 border border-[#c9a84c] flex items-center justify-center rounded bg-[#c9a84c]/10">
-                            <span class="text-[#c9a84c] font-cinzel font-bold text-2xl">W</span>
+                            class="w-12 h-12 border border-[#C5A059] flex items-center justify-center rounded bg-[#C5A059]/10">
+                            <span class="text-[#C5A059] font-cinzel font-bold text-2xl">W</span>
                         </div>
                         <div class="flex flex-col">
                             <span class="font-cinzel text-2xl font-bold tracking-[3px] text-white uppercase">Dr. Walter
                                 Neto</span>
-                            <span class="font-montserrat text-[9px] tracking-[4px] text-[#c9a84c] uppercase">Advogado
+                            <span class="font-montserrat text-[9px] tracking-[4px] text-[#C5A059] uppercase">Advogado
                                 Criminalista</span>
                         </div>
                     </div>
                 </div>
 
                 <nav class="flex gap-16 text-[10px] tracking-[4px] uppercase font-bold text-[#666666]">
-                    <a href="#inicio" class="hover:text-[#c9a84c] transition">Início</a>
-                    <a href="#atuacao" class="hover:text-[#c9a84c] transition">Atuação</a>
-                    <a href="#autoridade" class="hover:text-[#c9a84c] transition">O Advogado</a>
+                    <a href="#inicio" class="hover:text-[#C5A059] transition">Início</a>
+                    <a href="#atuacao" class="hover:text-[#C5A059] transition">Atuação</a>
+                    <a href="#autoridade" class="hover:text-[#C5A059] transition">O Advogado</a>
                 </nav>
 
                 <div class="text-[10px] tracking-[3px] uppercase font-medium text-[#444444] text-center lg:text-right">
