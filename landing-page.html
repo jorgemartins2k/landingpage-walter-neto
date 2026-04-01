@@ -133,6 +133,29 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
     </style>
 </head>
 
@@ -276,63 +299,64 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 fade-in">
+                    <!-- Area Card 1: Direito Criminal -->
                     <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
                         <div
-                            class="w-20 h-20 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
-                            <svg class="w-10 h-10 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
+                            class="w-24 h-24 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
+                            <svg class="w-12 h-12 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-width="1.2"
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3m0 0a10.003 10.003 0 014.283 17.571L16.236 17.5m0 0a10.003 10.003 0 014.283-17.571M12 11c0-1.657-1.343-3-3-3s-3 1.343-3 3 1.343 3 3 3 3-1.343 3-3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Direito Criminal</h3>
+                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Atuação estratégica em crimes
+                            complexos. Defesa técnica pautada no rigor acadêmico e na experiência prática de tribunais.
+                        </p>
+                        <a href="https://wa.me/5564992597117" target="_blank"
+                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Consultar
+                            Especialista →</a>
+                    </div>
+
+                    <!-- Area Card 2: Processo Penal -->
+                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
+                        <div
+                            class="w-24 h-24 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
+                            <svg class="w-12 h-12 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Processo Penal</h3>
+                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Domínio das nulidades
+                            processuais e garantias fundamentais. Atuação firme para assegurar o cumprimento estrito da
+                            lei.</p>
+                        <a href="https://wa.me/5564992597117" target="_blank"
+                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Garantir
+                            Direitos →</a>
+                    </div>
+
+                    <!-- Area Card 3: Tribunal do Júri -->
+                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
+                        <div
+                            class="w-24 h-24 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
+                            <svg class="w-12 h-12 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                     d="M3 6l3 1 alternate 9-1 3-1M3 6l3-1 9 1 3 1M3 6V18c0 1 1 2 3 2s3-1 3-2V6M15 6V18c0 1 1 2 3 2s3-1 3-2V6">
                                 </path>
                             </svg>
                         </div>
                         <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Tribunal do Júri</h3>
-                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Defesa técnica e estratégica
-                            em crimes contra a vida. Sustentação oral de alto impacto baseada em rigorosa análise
-                            processual.</p>
+                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Defesa técnica perante o
+                            Conselho de Sentença. Experiência e oratória diferenciada em crimes dolosos contra a vida.
+                        </p>
                         <a href="https://wa.me/5564992597117" target="_blank"
-                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Garantir
-                            Defesa →</a>
-                    </div>
-
-                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
-                        <div
-                            class="w-20 h-20 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
-                            <svg class="w-10 h-10 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-width="1.2"
-                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                                </path>
-                            </svg>
-                        </div>
-                        <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Tribunais Superiores
-                        </h3>
-                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Impetração de Habeas Corpus e
-                            recursos especiais/extraordinários perante o STJ e STF com foco em nulidades e direitos
-                            fundamentais.</p>
-                        <a href="https://wa.me/5564992597117" target="_blank"
-                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Analisar
-                            Recurso →</a>
-                    </div>
-
-                    <div class="area-card bg-[#111111] p-12 flex flex-col items-center text-center group rounded-2xl">
-                        <div
-                            class="w-20 h-20 bg-[#c9a84c]/10 flex items-center justify-center rounded-2xl mb-10 group-hover:bg-[#c9a84c] transition-all">
-                            <svg class="w-10 h-10 text-[#c9a84c] group-hover:text-black transition-colors" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-width="1.2"
-                                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A10.003 10.003 0 0012 3m0 0a10.003 10.003 0 014.283 17.571L16.236 17.5m0 0a10.003 10.003 0 014.283-17.571M12 11c0-1.657-1.343-3-3-3s-3 1.343-3 3 1.343 3 3 3 3-1.343 3-3z">
-                                </path>
-                            </svg>
-                        </div>
-                        <h3 class="font-cinzel text-xl text-white uppercase tracking-[3px] mb-6">Inquéritos Policiais
-                        </h3>
-                        <p class="text-sm text-[#888888] mb-10 leading-relaxed font-light">Acompanhamento imediato em
-                            delegacias e órgãos de investigação para evitar indiciamentos e garantir o devido processo
-                            legal desde o início.</p>
-                        <a href="https://wa.me/5564992597117" target="_blank"
-                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Gestão
-                            de Crise →</a>
+                            class="text-[10px] text-[#c9a84c] uppercase tracking-[4px] font-bold border-b border-[#c9a84c]/30 pb-2 hover:text-[#e8c96a] transition">Defesa
+                            no Júri →</a>
                     </div>
                 </div>
             </div>
@@ -599,6 +623,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5564992597117" target="_blank" class="whatsapp-float btn-pulse">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
 
     <script>
         // Header scroll
